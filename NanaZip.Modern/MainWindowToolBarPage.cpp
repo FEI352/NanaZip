@@ -17,6 +17,11 @@ namespace winrt::Mile
     using namespace ::Mile;
 }
 
+namespace winrt
+{
+    using Windows::UI::Xaml::Visibility;
+}
+
 #include <appmodel.h>
 #include <ShObjIdl_core.h>
 
