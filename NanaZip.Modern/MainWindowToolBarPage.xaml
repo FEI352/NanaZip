@@ -1,4 +1,4 @@
-﻿<Page
+<Page
   x:Class="NanaZip.Modern.MainWindowToolBarPage"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -119,6 +119,7 @@
         Margin="0,0,6,0"
         VerticalAlignment="Center"
         Background="Transparent"
+        Visibility="Collapsed"
         Click="SponsorButtonClick"
         Content="[Sponsor NanaZip]" />
     </Grid>

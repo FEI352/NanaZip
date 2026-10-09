@@ -1,4 +1,4 @@
-﻿#include "pch.h"
+#include "pch.h"
 #include "MainWindowToolBarPage.h"
 #if __has_include("MainWindowToolBarPage.g.cpp")
 #include "MainWindowToolBarPage.g.cpp"
@@ -353,13 +353,7 @@ namespace winrt::NanaZip::Modern::implementation
         this->m_DispatcherQueue =
             winrt::DispatcherQueue::GetForCurrentThread();
 
-        std::wstring sponsorButtonLabel = L"[";
-        sponsorButtonLabel += Mile::WinRT::GetLocalizedString(
-            L"NanaZip.Modern/MainWindowToolBarPage/SponsorButton/AcquireText",
-            L"Sponsor NanaZip");
-        sponsorButtonLabel += L"]";
-
-        this->SponsorButton().Content(winrt::box_value(sponsorButtonLabel));
+        this->SponsorButton().Visibility(winrt::Visibility::Collapsed);
     }
 
     void MainWindowToolBarPage::PageLoaded(
@@ -686,27 +680,7 @@ namespace winrt::NanaZip::Modern::implementation
 
     void MainWindowToolBarPage::RefreshSponsorButtonContent()
     {
-        winrt::handle(Mile::CreateThread([=]()
-        {
-            bool Sponsored = this->CheckSponsorEditionLicense();
-
-            if (!this->m_DispatcherQueue)
-            {
-                return;
-            }
-            this->m_DispatcherQueue.TryEnqueue(
-                winrt::DispatcherQueuePriority::Normal,
-                [=]()
-            {
-                std::wstring ResourcePath = L"NanaZip.Modern/";
-                ResourcePath += L"MainWindowToolBarPage/SponsorButton/";
-                ResourcePath += Sponsored ? L"SponsoredText" : L"AcquireText";
-                winrt::hstring ResourceContent =
-                    Mile::WinRT::GetLocalizedString(ResourcePath.c_str());
-                this->SponsorButton().Content(
-                    winrt::box_value(ResourceContent));
-            });
-        }));
+        this->SponsorButton().Visibility(winrt::Visibility::Collapsed);
     }
 }
 
