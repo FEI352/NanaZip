@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Platform.x64.props" />
   <Import Sdk="Mile.Project.Configurations" Project="Mile.Project.Platform.ARM64.props" />
@@ -8,7 +8,9 @@
     <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <DefaultLanguage>en</DefaultLanguage>
-    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+    <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
+    <PackageCertificateKeyFile>TestKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificatePassword>123456</PackageCertificatePassword>
     <EntryPointProjectUniqueName>..\NanaZip.UI.Modern\NanaZip.Modern.FileManager.vcxproj</EntryPointProjectUniqueName>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
